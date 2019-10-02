@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+ext {
+    junitJupiterVersion  = '5.4.0'
+    cucumberVersion = '4.2.3'
+    seleniumVersion = '3.141.59'
+}
+
+group 'Jdk11SeleniumCucumberTests'
+version '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+     testLogging.showStandardStreams = true
+}
+
+dependencies {
+    testCompile ("org.seleniumhq.selenium:selenium-java:${seleniumVersion}")
+    testCompile("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    testCompile ("io.cucumber:cucumber-java8:${cucumberVersion}")
+    testCompile ("io.cucumber:cucumber-picocontainer:${cucumberVersion}")
+    testCompile ("io.cucumber:cucumber-junit:${cucumberVersion}")
+}
